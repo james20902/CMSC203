@@ -1,11 +1,9 @@
-import Lab2.NumericTypes;
+import Lab3.MovieDriver;
 
 public class Main {
     //this class is only for testing, no important code here
 
     public static void main(String[] args){
-        System.out.println("Hello World!");
-        NumericTypes types = new NumericTypes();
-        types.main(null);
+        MovieDriver driver = new MovieDriver();
     }
 }
