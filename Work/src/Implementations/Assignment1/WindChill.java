@@ -10,7 +10,6 @@ public class WindChill {
      * Written by James Pham
      * @param args N/A
      */
-
     public static void main(String[] args){
         //define variables
         Scanner scanner = new Scanner(System.in);

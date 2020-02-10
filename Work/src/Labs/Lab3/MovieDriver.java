@@ -15,7 +15,8 @@ public class MovieDriver {
 
     public MovieDriver(){
         scanner = new Scanner(System.in);
-        while(true){
+        movie = new Movie();
+        do {
             System.out.println("Movie name? ");
             name = scanner.next();
             System.out.println("Movie rating? ");
@@ -29,10 +30,7 @@ public class MovieDriver {
             System.out.println(movie);
             System.out.println("Go again?");
             response = scanner.next().charAt(0);
-            if(response == 'n' || response == 'N'){
-                break;
-            }
-        }
+        } while (response != 'n' && response != 'N');
         System.out.println("goodbye");
     }
 }
