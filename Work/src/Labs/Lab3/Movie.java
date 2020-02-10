@@ -1,4 +1,4 @@
-package Lab3;
+package Labs.Lab3;
 
 /**
  * Movie class, represents a Movie object

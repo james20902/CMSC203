@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Assignments/Assignments.iml" filepath="$PROJECT_DIR$/Assignments/Assignments.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/CMSC203.iml" filepath="$PROJECT_DIR$/.idea/CMSC203.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Work/Work.iml" filepath="$PROJECT_DIR$/Work/Work.iml" />
     </modules>
   </component>
 </project>

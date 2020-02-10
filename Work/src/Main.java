@@ -1,4 +1,4 @@
-import Lab3.MovieDriver;
+import Labs.Lab3.MovieDriver;
 
 public class Main {
     //this class is only for testing, no important code here
