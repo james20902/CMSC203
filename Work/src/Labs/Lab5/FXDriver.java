@@ -1,6 +1,5 @@
 package Labs.Lab5;
 
-
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -9,7 +8,6 @@ import javafx.stage.Stage;
 
 
 public class FXDriver extends Application {
-
 
 	/**
 	 * The main method for the GUI example program JavaFX version
