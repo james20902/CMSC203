@@ -1,5 +1,3 @@
-package Implementations.Assignment2;
-
 import java.text.NumberFormat;
 import java.util.Locale;
 import javax.swing.*;
