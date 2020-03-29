@@ -1,7 +1,7 @@
 package Labs.Lab9;
 
 public class SavingsAccount extends BankAccount {
-  private double rate = .025;
+  private double rate = .025 / 12;
   private int savingsNumber = 0;
   private String accountNumber;
 

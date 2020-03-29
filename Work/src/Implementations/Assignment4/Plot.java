@@ -8,16 +8,18 @@ package Implementations.Assignment4;
  */
 public class Plot {
   //instance variables
-  private int x, y, width, depth;
+  private int x1, y1, x2, y2, width, depth;
 
   /**
    * Default constructor with no arguments, defaults all fields to (0,0) with a width and depth of 1
    */
   public Plot(){
-    x = 0;
-    y = 0;
+    x1 = 0;
+    y1 = 0;
     width = 1;
     depth = 1;
+    x2 = x1 + width;
+    y2 = y1 - depth;
   }
 
   /**
@@ -25,10 +27,12 @@ public class Plot {
    * @param p the provided Plot object
    */
   public Plot(Plot p){
-    x = p.getX();
-    y = p.getY();
+    x1 = p.getX();
+    y1 = p.getY();
     width = p.getWidth();
     depth = p.getDepth();
+    x2 = x1 + width;
+    y2 = y1 - depth;
   }
 
   /**
@@ -39,10 +43,12 @@ public class Plot {
    * @param depth how much to expand in the y direction
    */
   public Plot(int x, int y, int width, int depth){
-    this.x = x;
-    this.y = y;
+    this.x1 = x;
+    this.y1 = y;
     this.width = width;
     this.depth = depth;
+    x2 = x1 + width;
+    y2 = y1 - depth;
   }
 
   /**
@@ -51,8 +57,15 @@ public class Plot {
    * @return if current reference overlaps plot parameter
    */
   public boolean overlaps(Plot p){
-
-    return false;
+    //if the upper corner is lower than the lower corner of plot p
+    //or the lower corner is lower than the upper corner of plot p
+    //assume overlap
+    //todo BROKEN
+    System.out.println("Upper Left" + this.getX() + " " + this.getY() + " " + "Lower right" + this.getXLower() + " " + this.getYLower());
+    System.out.println("Upper Left" + p.getX() + " " + p.getY() + " " + "Lower right" + p.getXLower() + " " + p.getYLower());
+    boolean xWithinBounds = this.getX() < p.getXLower() || this.getXLower() < p.getX();
+    boolean yWithinBounds = this.getY() < p.getYLower() || this.getYLower() < p.getY();
+    return xWithinBounds || yWithinBounds;
   }
 
   /**
@@ -61,9 +74,11 @@ public class Plot {
    * @return if current reference is larger than plot parameter
    */
   public boolean encompasses(Plot p){
-    //assumes two sides are within bounds
-    boolean coordWithinBounds = (x >= p.getX()) && (y <= p.getY());
-    return false;
+    //if the upper corner and lower corners of plot p are less than the upper and lower corners
+    //of this plot, assume containment
+    boolean upperCornerCheck = this.getX() <= p.getX() && this.getY() <= p.getY();
+    boolean lowerCornerCheck = this.getXLower() >= p.getXLower() && this.getYLower() <= p.getYLower();
+    return upperCornerCheck && lowerCornerCheck;
   }
 
   /**
@@ -71,7 +86,8 @@ public class Plot {
    * @param x the new X coordinate
    */
   public void setX(int x){
-    this.x = x;
+    this.x1 = x;
+    x2 = x1 + width;
   }
 
   /**
@@ -79,7 +95,15 @@ public class Plot {
    * @return the current X coordinate
    */
   public int getX(){
-    return x;
+    return x1;
+  }
+
+  /**
+   * Private method for internally calculating overlap
+   * @return the lower right X coordinate
+   */
+  private int getXLower(){
+    return x2;
   }
 
   /**
@@ -87,7 +111,8 @@ public class Plot {
    * @param y the new Y coordinate
    */
   public void setY(int y){
-    this.y = y;
+    this.y1 = y;
+    y2 = y1 - depth;
   }
 
   /**
@@ -95,7 +120,15 @@ public class Plot {
    * @return the current Y coordinate
    */
   public int getY(){
-    return y;
+    return y1;
+  }
+
+  /**
+   * Private method for internally calculating overlap
+   * @return the lower right Y coordinate
+   */
+  private int getYLower(){
+    return y2;
   }
 
   /**
@@ -104,6 +137,7 @@ public class Plot {
    */
   public void setWidth(int width){
     this.width = width;
+    x2 = x1 + width;
   }
 
   /**
@@ -120,6 +154,7 @@ public class Plot {
    */
   public void setDepth(int depth){
     this.depth = depth;
+    y2 = y1 - depth;
   }
 
   /**
@@ -136,7 +171,7 @@ public class Plot {
    */
   @Override
   public String toString(){
-    return "Upper left: (" + x + "," + y + "); Width: " + width + " Depth: " + depth;
+    return "Upper left: (" + x1 + "," + y1 + "); Width: " + width + " Depth: " + depth;
   }
 
 }
