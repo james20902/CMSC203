@@ -207,7 +207,9 @@ public class ManagementCompany {
   public String toString(){
     StringBuilder allProperties = new StringBuilder();
     for(Property p : properties){
-      allProperties.append(p.toString());
+      if(p != null){
+        allProperties.append(p.toString());
+      }
     }
     return allProperties.toString();
   }
