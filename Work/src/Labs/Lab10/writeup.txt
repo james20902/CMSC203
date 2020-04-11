@@ -1,0 +1,9 @@
+Task 2
+Function 4 has an intersection at X = .982, and then an asymptote towards 0 starting around X = 3 but then
+starts to continually increase at X = 4.
+
+Task 3
+Function 5 actually shows to be symmetrical on both sides, with an asymptote towards 0 and seemingly random
+noise towards X = 0. Taking a closer look it actually seems like a standard sin function with the frequency
+of the wave being controlled by x as a function. After X = -1, 1 though the limit no longer exists as the function
+approaches Y = 0.
